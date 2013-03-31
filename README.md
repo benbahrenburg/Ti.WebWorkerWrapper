@@ -20,8 +20,7 @@ var mod = require('Ti.WebWorkerWrapper');
 ```
 
 <h2>Example</h2>
-
-
+Web Workers can provide a multi threaded approach to handling compute jobs.  A good test of this is to create a small iOS app that calculates the Fibonacci sequence for 5 random seeds in parallel.  All of the JavaScript files needed to run this sample projects are included with this repo.  Please see the below instructions on how install this example into your Titanium project.
 
 <h3>Installing the example</h3>
 1. First create a Titanium iOS project
