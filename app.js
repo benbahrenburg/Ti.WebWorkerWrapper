@@ -1,5 +1,6 @@
 var my = {
 	workerMod : require('Ti.WebWorkerWrapper'),
+	isAndroid : Ti.Platform.osname === 'android'
 };
 
 (function () {
@@ -17,7 +18,7 @@ var my = {
 
 	win.add(Ti.UI.createLabel({
 		top:10, height:65, left:5, right:5,color:'#000',
-		textAlign:'left',text:'This recipe runs the Fibonacci sequence using web workers to demonstrate how to perform multi-threaded calculations in Titanium', 
+		textAlign:'left',text:'This sample runs the Fibonacci sequence using web workers to demonstrate how to perform multi-threaded calculations in Titanium', 
 		font:{fontSize:14}
 	}));
 	
@@ -99,7 +100,13 @@ var my = {
 		worker4.start('fibonacci.js',tests.random(1,50),tests.worker4);
 								 		
 	});
-		
+	
+	win.addEventListener('open', function(e){
+		if(my.isAndroid){
+			alert('This recipe only supports iOS');
+		}
+	});
+	
     win.open({modal:true});
         
 })();    
